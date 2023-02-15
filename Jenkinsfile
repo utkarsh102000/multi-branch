@@ -1,5 +1,5 @@
 pipeline {
-  agent {label 'demo-docker-slave'}
+  agent {label 'docker-agent-python'}
   options {
     buildDiscarder(logRotator(numToKeepStr: '5'))
   }
