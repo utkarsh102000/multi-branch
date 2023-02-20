@@ -1,13 +1,10 @@
 pipeline {
-  agent {label 'docker-agent-python'}
-  options {
-    buildDiscarder(logRotator(numToKeepStr: '5'))
-  }
-  stages {
-    stage('hello') {
-      steps {
-        echo "hello"
-      }
+    agent { docker { image 'maven:3.9.0-eclipse-temurin-11' } }
+    stages {
+        stage('build') {
+            steps {
+                sh 'mvn --version'
+            }
+        }
     }
-  }
 }
